@@ -6,7 +6,7 @@ const app = express()
 //creo un puerto
 const PORT = 3000
 
-console.log("El primer mensaje de este backend")
+console.log("El segundo mensaje de este backend")
 
 app.listen(PORT, () => {
     console.log(`Servidor escuchando en el puerto ${PORT}`)
