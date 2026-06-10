@@ -20,7 +20,16 @@ console.log("El segundo mensaje de este backend")
 app.get('/api/saludo', (req, res) =>{
     //logica para crear borrar o eliminar un producto, esta parte es el controlador
     //en este caso el endpoint es solo un saludo
-    res.json('Bienvenidos mi Backend')
+    const vehiculos = ['🏎', '🚗', '🚕'] 
+    res.json({
+        mensaje:'Bienvenidos mi Backend',
+        vehiculos})
+})
+
+app.get('/api/adios', (req, res) => {
+    res.json({
+        mensaje: 'Nos vamos'
+    })
 })
 
 app.listen(PORT, () => {
