@@ -2,6 +2,8 @@ import express from 'express'
 //const express = required ('express') forma antigua de importar express
 import cors from 'cors'
 import morgan from 'morgan'
+import {dirname} from 'path'
+import {fileURLToPath} from 'url'
 
 //hago una instancia de express
 const app = express()
@@ -12,6 +14,11 @@ const PORT = 3000
 app.use(cors()) //permite conexiones remotas
 app.use(express.json()) //permite interpretar los datos que llegan en la solicitud o request en formato json
 app.use(morgan('dev')) //es mas para el desarrollador para saber si los endpoint que mande en postman se ejecuto y que se devolvio
+const __dirname = dirname(fileURLToPath(import.meta.url)); //para obtener la ruta del directorio actual
+console.log(__dirname + '/public')
+//configurar un archivo estatico como pagina principal
+app.use(express.static(__dirname + '/public'))
+
 
 //area de logica
 console.log("El segundo mensaje de este backend")
